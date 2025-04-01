@@ -1,0 +1,205 @@
+@media (max-width: 1440px) {
+}
+@media (max-width: 1280px) {
+  .profitgridBox {
+    gap: 81px;
+  }
+  .heightpurpleBox {
+    height: 324px !important;
+  }
+  .tabBox .MuiFormGroup-root {
+    width: 85%;
+  }
+  .slick-prev {
+    left: 0px;
+    z-index: 999;
+  }
+  .slick-next {
+    right: 0px;
+  }
+  // .logoImg {
+  //   width: 55px;
+  // }
+}
+@media (max-width: 1270px) {
+  .profilename {
+    margin-left: 4px;
+    h6 {
+      font-size: 14px !important;
+      line-height: 17px !important;
+    }
+    span {
+      font-size: 14px !important;
+      line-height: 17px !important;
+      display: none;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .profitgridBox {
+    grid-template-columns: auto auto;
+  }
+
+  .tabBox .MuiFormGroup-root {
+    width: 100%;
+  }
+  .profilename {
+    margin-left: 4px;
+    h6 {
+      font-size: 14px !important;
+      line-height: 17px !important;
+    }
+    span {
+      font-size: 14px !important;
+      line-height: 17px !important;
+      display: none;
+    }
+  }
+  .slick-prev {
+    left: 0px;
+    z-index: 999;
+  }
+  .slick-next {
+    right: 0px;
+  }
+  // .logoImg {
+  //   width: 55px;
+  // }
+}
+@media (max-width: 991px) {
+  .flexWrap {
+    flex-wrap: wrap;
+  }
+  .choosedBox {
+    display: none;
+  }
+  .bannerBottomShade {
+    display: none;
+  }
+  .autolatedBox {
+    display: none;
+  }
+  .padd {
+    height: 289px;
+    overflow-y: scroll; /* Add the ability to scroll */
+  }
+  .padd::-webkit-scrollbar {
+    display: none;
+  }
+  // .logoImg {
+  //   width: 65px;
+  // }
+  .slickbottomslider .slick-next {
+    right: 39px;
+  }
+  .slickbottomslider .slick-prev {
+    right: 92px;
+  }
+
+  .slick-prev {
+    left: 0px;
+    z-index: 999;
+  }
+  .slick-next {
+    right: 0px;
+  }
+  .mainboxEarn {
+    & .shape1 {
+      top: -17px;
+      width: 80px;
+    }
+    & .shape3 {
+      top: -17px;
+      width: 80px;
+    }
+    & h1 {
+      font-size: 17px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .flexxWraptransaction {
+    flex-wrap: wrap;
+  }
+  .profitgridBox {
+    grid-template-columns: auto;
+    gap: 10px;
+  }
+
+  .albumslickbottomslider .slick-prev {
+    left: -1% !important;
+    top: 72% !important;
+  }
+  .albumslickbottomslider .slick-next {
+    right: -2% !important;
+    top: 72% !important;
+  }
+  .padd {
+    height: 289px;
+    overflow-y: scroll; /* Add the ability to scroll */
+  }
+  .padd::-webkit-scrollbar {
+    display: none;
+  }
+  .txt3 {
+    h1 {
+      font-size: 24px !important;
+    }
+  }
+  .txt1 {
+    h2 {
+      font-size: 12px !important;
+    }
+  }
+  .mintDialog {
+    background: #000;
+  }
+  .remaining {
+    h4: {
+      font-size: 11px;
+      line-height: 15px;
+    }
+  }
+
+  .subs {
+    border-right: none !important;
+    font-size: 12px !important;
+  }
+  .addition {
+    font-size: 12px !important;
+    border-left: none !important;
+  }
+  .logoImg {
+    width: 79px;
+  }
+  .slickbottomslider .slick-prev {
+    right: 92px;
+  }
+
+  .slickbottomslider .slick-next {
+    right: 39px;
+  }
+  .slick-prev {
+    left: 0px;
+    z-index: 999;
+  }
+  .slick-next {
+    right: 0px;
+  }
+  .stillQues {
+    & h2 {
+      font-size: 25px;
+    }
+  }
+  .mainboxEarn {
+    & .shape1 {
+      display: none;
+    }
+    & .shape3 {
+      display: none;
+    }
+    & h1 {
+      font-size: 17px;
+    }
+  }
+}

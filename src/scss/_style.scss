@@ -1,0 +1,178 @@
+.transfer {
+  color: #fff;
+  padding: 4px 86px;
+  font-size: 24px;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 500;
+  line-height: 35px;
+  border-radius: 5px;
+  background-color: #1eb808;
+  margin-left: 28px;
+  margin-top: 25px;
+  border: 1px solid #1eb808;
+  &:hover {
+    border: 1px solid #1eb808;
+  }
+}
+.buttonWall {
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  padding: 10px 19px !important;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  width: 100%;
+  line-height: 17px;
+  height: 37px;
+  border-radius: 8px;
+  background-color: #1eb808;
+}
+.textFeildWall {
+  border: 1px solid #1eb808;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 100%;
+}
+.button1Wall {
+  height: 37px;
+  width: 100%;
+  margin-right: 0px;
+  padding: 10px 19px !important;
+}
+.stillQues {
+  padding: 90px 0;
+  & h2 {
+    color: white;
+    text-align: center;
+    font-family: "Saira Semi Condensed", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    padding-bottom: 20px;
+    line-height: 28px;
+  }
+  & p {
+    max-width: 557px;
+  }
+}
+.cardWall {
+  border: 1px solid #1eb808;
+  border-radius: 5px;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px;
+  &:hover {
+    box-shadow: 0 0 1rem #1eb80873, 0 0 0rem #1eb80873, 0 0 1rem #1eb80880,
+      0 0 4rem #1eb80866;
+    transition: 0.5s;
+  }
+  & h4 {
+    color: #1eb808;
+    font-family: "Saira Semi Condensed", sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 38px;
+  }
+  & h5 {
+    color: #fff;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: "Saira Semi Condensed", sans-serif;
+  }
+}
+.faqtextheader {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 700;
+  line-height: 28px;
+}
+.buttonSlide {
+  font-family: "Inter sans-serif";
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 17px !important;
+  color: #ffffff !important;
+  background: #1eb808 !important;
+  border-radius: 8px !important;
+  &:hover {
+    background: #000 !important;
+    border: 1px solid #1eb808;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px #04fda3;
+  }
+}
+
+.txt5 {
+  & h3 {
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: white !important;
+    margin-top: 20px;
+  }
+}
+.txt6 {
+  & h4 {
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    color: #ffffff !important;
+    padding-top: 15px;
+  }
+}
+.mainboxEarn {
+  position: relative;
+  & .shape1 {
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    padding-top: 100px;
+    width: 177px;
+  }
+  & .shape3 {
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    padding-top: 100px;
+    width: 157px;
+  }
+  & h1 {
+    font-size: 50px;
+    color: #01fbb4;
+    filter: drop-shadow(0px 0px 10px #1eb808);
+    text-align: center;
+  }
+  & h2 {
+    font-family: "Saira Semi Condensed", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 47px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 40px;
+  }
+  & h6 {
+    text-align: center;
+    font-family: "Saira Semi Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+  }
+  & h5 {
+    font-family: "Saira Semi Condensed", sans-serif;
+    font-weight: 400;
+    line-height: 27px;
+    color: #ffffff;
+    padding-bottom: 60px;
+    padding-left: 10px;
+  }
+}
