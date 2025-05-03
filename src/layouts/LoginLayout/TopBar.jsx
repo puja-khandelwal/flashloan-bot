@@ -30,7 +30,7 @@ export default function TopBar() {
       <Box className={classes.loginlayoutmainBox}>
         <Container>
           <img
-            src="./images/logo.svg"
+            src="./images/logo.png"
             alt="Logo"
             onClick={() => history.push("/")}
           />

@@ -36,7 +36,7 @@ export default function Trading({ data }) {
               <Typography
                 variant="h2"
                 style={{
-                  color: "rgba(243, 109, 54, 1)",
+                  color: "#07C954",
                 }}
               >
                 {data.number}

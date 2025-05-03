@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "40px 0",
     position: "relative",
     zIndex: "999",
-    backgroundColor: "rgba(65, 22, 67, 1)",
+    backgroundColor: "white",
     "& p": {
       [theme.breakpoints.down("sm")]: {
         fontSize: "15px !important",
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     "& h2": {
-      color: "#fff",
+      color: "black",
       fontSize: "25px !important",
       fontWeight: "500",
       [theme.breakpoints.down("sm")]: {
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
   menuButton: {
     fontSize: "17px",
-    color: "#fff",
+    color: "black",
     cursor: "pointer",
     fontWeight: "300",
     display: "block",
@@ -83,13 +83,13 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "14px",
     },
     "&.active": {
-      color: "rgba(243, 109, 54, 1)",
+      color: "#07C954",
     },
     "&:hover": {
-      color: "rgba(243, 109, 54, 1)",
+      color: "#07C954",
     },
     "&[tabIndex]:focus": {
-      color: "rgba(243, 109, 54, 1)",
+      color: "#07C954",
     },
   },
   icons: {
@@ -113,9 +113,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "0px",
     "& svg": {
       paddingRight: "10px",
-      color: "#fff",
+      color: "black",
       "&:hover": {
-        color: "#fff",
+        color: "black",
       },
     },
   },
@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subscribetext: {
     "& p": {
-      color: "#FFF",
+      color: "black",
       margin: "29px 0",
       maxWidth: "239px",
       lineHeight: "22px",
@@ -155,21 +155,20 @@ export default function Liquidity() {
             <Grid item lg={3} md={4} sm={4} xs={12}>
               <Box className={classes.subscribetext}>
                 <img
-                  src="./images/footer_logo.svg"
+                  src="./images/logo.png"
                   alt="Logo"
-                  width="100%"
-                  style={{ maxWidth: "100px" }}
+                  // width="100%"
+                  style={{width: "150px", height: "150px" }}
                 />
 
                 <Typography
                   variant="body2"
                   style={{
-                    color: "#fff",
+                    color: "black",
                     textAlign: "left",
                   }}
                 >
-                  Lorem ipsum dolor sit amet consectetur. Ac sit sit id orci.
-                  Dictum aliquet habitant
+                  Powering Intelligent DeFi Trading with Secure & Automated Flash Loans
                 </Typography>
               </Box>
             </Grid>

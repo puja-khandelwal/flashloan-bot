@@ -158,7 +158,7 @@ export default function Login() {
         <Box className="loginBox">
           <Paper className="mainBox" elevation={2}>
             <Box className="displayColumn" align="center">
-              <Typography variant="h2">Welcome Back</Typography>
+              <Typography variant="h2" style={{color: "#07c954"}}>Welcome Back</Typography>
               <Box className="displayCenter descriptionText">
                 <Typography variant="body1" mt={1}>
                   {/* Don’t have an account?
@@ -262,10 +262,11 @@ export default function Login() {
                   <Box mb={2} className="displayCenter">
                     <Button
                       variant="contained"
-                      color="primary"
+                      // color="primary"
                       type="submit"
                       fullWidth
                       disabled={isUpdating}
+                      style={{backgroundColor: "#07c954"}}
                     >
                       Login
                       {isUpdating && <ButtonCircularProgress />}

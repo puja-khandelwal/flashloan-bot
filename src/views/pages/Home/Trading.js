@@ -8,6 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import WorksCard from "src/component/WorksCard";
+
 const useStyles = makeStyles((theme) => ({
   tradingBox: {
     position: "relative",
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   automatedMainBox: {
     padding: "30px",
     marginTop: "90px",
-    background: "rgba(65, 22, 67, 1)",
+    background: "#154FB6",
 
     borderRadius: "30px",
     [theme.breakpoints.down("sm")]: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "6px",
     },
     "& h2": {
-      color: "rgba(65, 22, 67, 1)",
+      color: "#154FB6",
       textAlign: "left",
       textTransform: "capitalize",
     },
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "400",
     fontSize: "25px",
     paddingTop: "6px",
-    color: "rgba(65, 22, 67, 1) !important",
+    color: "#154FB6 !important",
   },
 }));
 const GameMap1 = [
@@ -66,33 +67,33 @@ const GameMap1 = [
     image: "images/features_1.png",
     heading: "Feature-1",
     number: "01",
-    name: "Highly specialised consultants",
+    name: "Instant Arbitrage Execution",
     description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam nunc, potenti placerat nunc, placerat dignissim.",
+      "Our AI-driven bot detects profitable arbitrage opportunities across multiple DEXs and executes trades in milliseconds, ensuring you never miss a high-reward trade.",
   },
   {
     image: "images/features_2.png",
     heading: "Feature-2",
     number: "02",
-    name: "Successfully completed cases",
+    name: "Risk-Free Flash Loans",
     description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam nunc, potenti placerat nunc, placerat dignissim.",
+      "Leverage flash loans without collateral! Borrow, trade, and repay within a single transaction, ensuring zero risk of liquidation while maximizing your profits",
   },
   {
     image: "images/features_3.png",
     heading: "Feature-3",
     number: "03",
-    name: "Satisfaction of our customers",
+    name: "Bank-Grade Security",
     description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam nunc, potenti placerat nunc, placerat dignissim.",
+      "We implement end-to-end encryption, multi-signature authentication, and smart contract audits to protect your funds and prevent unauthorized access.",
   },
   {
     image: "images/features.png",
     heading: "Feature-4",
     number: "04",
-    name: "Years Of Experience In Cleaning Field",
+    name: "Non-Custodial & Private",
     description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam nunc, potenti placerat nunc, placerat dignissim.",
+      "Your assets remain in your control—no need to deposit funds with us. Enjoy complete anonymity with our decentralized, KYC-free trading model.",
   },
 ];
 export default function Earn() {
@@ -106,7 +107,7 @@ export default function Earn() {
           <Grid container spacing={3}>
             <Grid item lg={7} sm={6} xs={12} className={classes.centering}>
               <Box className={classes.textBox} align="center">
-                <img src="images/trading_left.svg" style={{ width: "100%" }} />
+                <img src="images/laptop-img.svg" style={{ width: "100%" }} />
               </Box>
             </Grid>
 
@@ -114,13 +115,13 @@ export default function Earn() {
               <Box
                 className={classes.textBox}
                 style={{
-                  borderLeft: "3px solid rgba(65, 22, 67, 1)",
+                  borderLeft: "3px solid #154FB6",
                   paddingLeft: "23px",
                 }}
               >
                 <Typography variant="h2" style={{ paddingTop: "0px" }}>
                   Automate your <br />
-                  <span style={{ color: "rgba(243, 109, 54, 1)" }}>
+                  <span style={{ color: "#07C954" }}>
                     Trading
                   </span>{" "}
                 </Typography>
@@ -133,10 +134,7 @@ export default function Earn() {
                     variant="body1"
                     style={{ fontWeight: "400", marginTop: "10px" }}
                   >
-                    Lorem ipsum dolor sit amet consectetur. Eget donec aliquam
-                    et fermentum iaculis morbi. Sapien vulputate cras vulputate
-                    erat massa id sit aliquam dui. Phasellus nullam nulla
-                    aliquamvel quam nunc et.
+                    Let our AI-driven bot analyze market conditions and execute arbitrage trades at lightning speed. With real-time analytics and smart contract integration, you stay ahead in the crypto game.
                   </Typography>
                   <Typography
                     variant="body1"
@@ -148,10 +146,10 @@ export default function Earn() {
                   <Box mt={3}>
                     <Button
                       variant="contained"
-                      color="primary"
-                      style={{ minWidth: "130px" }}
+                      // color="primary"
+                      style={{ minWidth: "130px",  backgroundColor: "#07C954" }}
                     >
-                      Start
+                      Launch Demo
                     </Button>
                   </Box>
                 </Box>

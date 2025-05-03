@@ -88,7 +88,7 @@ export default function Bannner1() {
     setOpen(false);
   };
 
-  const handleClose = () => {};
+  const handleClose = () => { };
   const [ShowTopBtn, setShowTopBtn] = useState();
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -114,10 +114,10 @@ export default function Bannner1() {
             <Grid container spacing={2} alignItems="center">
               <Grid item lg={6} md={6} sm={12} xs={12}>
                 <Box className="textBox">
-                  <Typography variant="h1" className={classes.head}>
-                    All-in-one platform for running{" "}
-                    <span style={{ color: "rgba(243, 109, 54, 1)" }}>
-                      business
+                  <Typography variant="h1" className={classes.head} style={{color: "#154FB6"}}>
+                    Enjoy Your Decentraliezed Flash Loan Bot On Multiple{" "}
+                    <span style={{ color: "#07C954" }}>
+                      DEXes
                     </span>
                   </Typography>
 
@@ -130,10 +130,8 @@ export default function Bannner1() {
                       textAlign: "left",
                     }}
                   >
-                    Lorem ipsum dolor sit amet consectetur. Ac sit sit id orci.
-                    Dictum aliquet habitant adipiscing placerat. Parturient
-                    morbi pellentesq aliquet habitant adipiscing placerat.
-                    Parturient morbi pellentesq
+                    Take advantage of instant, risk-free arbitrage opportunities across multiple DEXs with automated execution. No collateral required!
+
                   </Typography>
                 </Box>
                 {/* <Box mt={2} mb={3} align="left">
@@ -174,7 +172,7 @@ export default function Bannner1() {
                     className="bannerImg"
                   /> */}
                   <img
-                    src="images/banner_right.svg"
+                    src="images/banner-right.png"
                     alt="image"
                     className="bannerImg"
                   />

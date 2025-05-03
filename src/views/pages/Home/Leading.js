@@ -73,13 +73,13 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "0px",
     },
     "& h2": {
-      color: "rgba(65, 22, 67, 1)",
+      color: "#154FB6",
       maxWidth: "1000px",
       textTransform: "capitalize",
     },
     "& h3": {
       // color: theme.palette.primary.main,
-      color: "rgba(65, 22, 67, 1)",
+      color: "#154FB6",
     },
     "& .mainheadingBox": {
       marginTop: "6px",
@@ -110,7 +110,7 @@ export default function Earn() {
             <Box mt={5} className={classes.textBox}>
               <Typography variant="h2">
                 Experiencing the{" "}
-                <span style={{ color: "rgba(243, 109, 54, 1)" }}>leading</span>{" "}
+                <span style={{ color: "#07C954" }}>leading</span>{" "}
                 cryptocurrency tradig bot
               </Typography>
             </Box>
@@ -128,9 +128,7 @@ export default function Earn() {
 
                 <Box className="mainheadingBox">
                   <Typography variant="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Urna diam nunc, potenti placerat nunc, placerat dignissim.
-                    Sed interdum morbi varius facilisis nisl est.
+                  Our audited smart contracts ensure transparent, fair, and risk-free execution. With real-time trade tracking and no hidden fees, you have full control over every transaction.
                   </Typography>
                 </Box>
               </Box>
@@ -146,9 +144,7 @@ export default function Earn() {
                 </Box>
                 <Box className="mainheadingBox">
                   <Typography variant="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Urna diam nunc, potenti placerat nunc, placerat dignissim.
-                    Sed interdum morbi varius facilisis nisl est.
+                  We safeguard assets with end-to-end encryption, multi-layer authentication, and decentralized execution, ensuring every trade is protected from unauthorized access.
                   </Typography>
                 </Box>
               </Box>
@@ -164,9 +160,7 @@ export default function Earn() {
                 </Box>
                 <Box className="mainheadingBox">
                   <Typography variant="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Urna diam nunc, potenti placerat nunc, placerat dignissim.
-                    Sed interdum morbi varius facilisis nisl est.
+                  No KYC required! Your data remains anonymous and encrypted, ensuring complete confidentiality. We follow a non-custodial approach, giving you full control over your assets.
                   </Typography>
                 </Box>
               </Box>

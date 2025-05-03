@@ -50,7 +50,7 @@ function Home(props) {
         </div>
 
         <div id="contact">
-          <Contact />
+          {/* <Contact /> */}
         </div>
       </Box>
     </Page>
