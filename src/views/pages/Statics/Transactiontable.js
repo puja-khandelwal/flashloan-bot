@@ -222,7 +222,7 @@ function Transactiontable() {
             <TableContainer style={{ marginBottom: "20px" }}>
               <Table>
                 <TableHead>
-                  <TableRow style={{ backgroundColor: "rgba(65, 22, 67, 1)" }}>
+                  <TableRow style={{ backgroundColor: "#013FA7" }}>
                     <TableCell>Serial No.</TableCell>
                     <TableCell>Tx Hash</TableCell>
 

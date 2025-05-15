@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     margin: "30px 0",
     width: "fit-content",
-    border: "1px solid #F36D36",
+    border: "1px solid #013FA7",
     borderRadius: "10px",
     padding: "5px",
     display: "flex",
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "20px",
     },
     "& button": {
-      color: "#f36d36",
+      color: "#013FA7",
       fontSize: "14px",
       borderRadius: "10px",
       padding: "10px 35px",
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
       },
       "&.active": {
         color: "#fff",
-        background: "#f36d36",
+        background: "#013FA7",
       },
     },
   },

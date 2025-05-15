@@ -1322,8 +1322,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .clearbutton {
-  background: rgb(65, 22, 67) !important;
-  border: 1px solid rgb(65, 22, 67) !important;
+  background: #013FA7 !important;
+  border: 1px solid #013FA7 !important;
   color: #fff !important;
 }
 

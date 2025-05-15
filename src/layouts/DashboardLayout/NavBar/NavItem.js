@@ -53,16 +53,16 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "0px",
       marginBottom: "5px",
       "&:hover": {
-        color: "rgba(65, 22, 67, 1)",
+        color: "blue",
         background:
-          "linear-gradient(90deg, rgba(243,109,54,0.6867121848739496) 0%, rgba(243,109,54,0.1881127450980392) 50%, rgba(243,109,54,0.5550595238095238) 100%)",
+          "linear-gradient(90deg, rgba(54, 243, 98, 0.6) 0%, rgba(63, 243, 54, 0.19) 50%, rgba(54, 243, 92, 0.56) 100%)",
         fontWeight: "400",
         "& $title": {
           fontWeight: "400",
-          color: "rgba(65, 22, 67, 1) !important",
+          color: "blue !important",
         },
         "& $icon": {
-          color: "rgba(65, 22, 67, 1) !important",
+          color: "blue !important",
         },
       },
       "& $title": {
@@ -96,17 +96,17 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "pre",
   },
   active: {
-    color: "rgba(65, 22, 67, 1)",
+    color: "blue",
     background:
-      "linear-gradient(90deg, rgba(243,109,54,0.6867121848739496) 0%, rgba(243,109,54,0.1881127450980392) 50%, rgba(243,109,54,0.5550595238095238) 100%)",
+      "linear-gradient(90deg, rgba(54, 243, 98, 0.6) 0%, rgba(63, 243, 54, 0.19) 50%, rgba(54, 243, 92, 0.56) 100%)",
 
     fontWeight: "400",
     "& $title": {
       fontWeight: "400",
-      color: "rgba(65, 22, 67, 1) !important",
+      color: "blue !important",
     },
     "& $icon": {
-      color: "rgba(65, 22, 67, 1)  !important",
+      color: "blue  !important",
     },
   },
 }));

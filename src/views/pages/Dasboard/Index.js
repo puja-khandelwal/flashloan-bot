@@ -516,7 +516,7 @@ function Features() {
             <TableContainer style={{ marginBottom: "20px" }}>
               <Table>
                 <TableHead>
-                  <TableRow style={{ backgroundColor: "rgba(65, 22, 67, 1)" }}>
+                  <TableRow style={{ backgroundColor: "#013FA7" }}>
                     <TableCell>Serial No.</TableCell>
                     <TableCell>Tx Hash</TableCell>
                     <TableCell>Borrow Amount</TableCell>
@@ -659,8 +659,8 @@ function Features() {
                   <Button
                     variant="contained"
                     size="large"
-                    color={profit == "profit" ? "primary" : "primary"}
-                    style={{ marginRight: "15px", minWidth: "165px" }}
+                    // color={profit == "profit" ? "primary" : "primary"}
+                    style={{ marginRight: "15px", minWidth: "165px", backgroundColor: "#013FA7" }}
                     onClick={() => setProfit("profit")}
                   >
                     Profit / TX
@@ -668,9 +668,10 @@ function Features() {
                   <Button
                     variant="outlined"
                     size="large"
-                    style={{ whiteSpace: "pre" }}
+                    style={{ whiteSpace: "pre", borderColor: "#013FA7", color: "#013FA7" }}
                     // color="secondary"
-                    color={profit != "profit" ? "primary" : "primary"}
+                    // color={profit != "profit" ? "primary" : "primary"}
+
                     onClick={() => setProfit("failed")}
                   >
                     Failed reverted

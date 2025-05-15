@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -9,6 +9,8 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import Profile from "./Profile";
+import axios from "axios";
+import ApiConfig from "src/config/APICongig";
 const useStyles = makeStyles((theme) => ({
   dashboardcardBox: {
     position: "relative",
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         content: "''",
         zIndex: "1",
         position: "absolute",
-        background: "rgba(65, 22, 67, 1)",
+        background: "#013FA7",
         top: "0",
         left: "0",
         borderRadius: "10px",
@@ -33,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .exchangeBox": {
       "&::before": {
-        background: "rgb(255, 85, 0) !important",
+        background: "#01CB54 !important",
       },
     },
 
@@ -51,6 +53,47 @@ const useStyles = makeStyles((theme) => ({
 export default function DashboardnewCard() {
   const classes = useStyles();
   const history = useHistory();
+  const [botStats, setBotStats] = useState({
+    walletBalance: "0.00",
+    transactionAmount: "0.00",
+    highestProfile: "0",
+  });
+  const [loading, setLoading] = useState(true);
+
+
+  const fetchBotStats = async () => {
+    try {
+      setLoading(true);
+      const res = await axios({
+        method: "GET", // Adjust method if needed
+        url: ApiConfig.botStats, // Make sure to define this endpoint in your ApiConfig
+        headers: {
+          token:
+            sessionStorage.getItem("token") ||
+            localStorage.getItem("creatturAccessToken"),
+        },
+      });
+      
+      if (res.data.responseCode === 200) {
+        // Adjust this based on your actual API response structure
+        const data = res.data.result;
+        setBotStats({
+          walletBalance: data.walletBalance || "0.00",
+          transactionAmount: data.transactionAmount || "0.00",
+          highestProfile: data.highestProfile || "0",
+        });
+      }
+      setLoading(false);
+    } catch (error) {
+      console.log("Error fetching bot stats:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBotStats();
+  }, []);
+
   return (
     <Box className={classes.dashboardcardBox}>
       <Grid

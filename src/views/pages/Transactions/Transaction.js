@@ -464,8 +464,8 @@ function Transaction(props) {
             <Box className="displayEnd" mt={1}>
               <Button
                 variant="contained"
-                color="primary"
-                style={{ minWidth: "115px" }}
+                // color="primary"
+                style={{ minWidth: "115px", backgroundColor: "#01CB54" }}
                 onClick={buyTokenHandler}
               >
                 Apply
@@ -473,9 +473,9 @@ function Transaction(props) {
               &nbsp;
               <Button
                 variant="contained"
-                color="secondary"
+                // color="secondary"
                 className="clearbutton"
-                style={{ minWidth: "115px", whiteSpace: "pre" }}
+                style={{ minWidth: "115px", whiteSpace: "pre", backgroundColor: "#013FA7" }}
                 onClick={downloadExcel}
               >
                 Download CSV
@@ -551,7 +551,7 @@ function Transaction(props) {
           <TableContainer>
             <Table>
               <TableHead>
-                <TableRow style={{ backgroundColor: "rgba(65, 22, 67, 1)" }}>
+                <TableRow style={{ backgroundColor: "#013FA7" }}>
                   <TableCell align="left">
                     <Typography
                       variant="body2"

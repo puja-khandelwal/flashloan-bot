@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         content: "''",
         zIndex: "1",
         position: "absolute",
-        background: "rgba(65, 22, 67, 1)",
+        background: "#013FA7",
         top: "0",
         left: "-23px",
         borderRadius: "10px",

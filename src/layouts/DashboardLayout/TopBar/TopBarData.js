@@ -261,7 +261,7 @@ export function TopBarData(props) {
   return (
     <>
       <img
-        src="images/logo.svg"
+        src="images/logo.png"
         alt="sfsdg"
         className={classes.logo1}
         onClick={() => history.push("/")}

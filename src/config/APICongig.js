@@ -1,13 +1,14 @@
 export const socketURL = "wss://node-oscar.mobiloitte.com";
 // const url = "https://node-oscar.mobiloitte.com";
-const url = "https://node-tusharbot.mobiloitte.io";
+// const url = "https://node-tusharbot.mobiloitte.io";
+const url = "http://91.108.104.148:4000";
 
 // local
 // export const socketURL = "ws://172.16.1.217:1939";
 // const url = "http://172.16.1.217:2069";//Vishnu sir
 // const url = "http://172.16.6.96:2069"; //Ritik
 
-const user = `${url}/api/v1/user`;
+const user = `${url}/api`;
 const admin = `${url}/api/v1/admin`;
 
 const stake = `${url}/api/v1/stake`;
@@ -25,6 +26,7 @@ const ApiConfig = {
   stakeNFT: `${stake}/stakeNFT`,
   stakeList: `${stake}/stakeList`,
   unstakeNFT: `${stake}/unstakeNFT`,
+  botStats: `${user}/bot-stats`,
 
   userUpdateSubscribe: `${updateSubscribe}/userUpdateSubscribe`,
   // contact us
@@ -32,8 +34,8 @@ const ApiConfig = {
   addContactUs: `${user}/addContactUs`,
   connectWallet: `${user}/connectWallet`,
 
-  updateProfile: `${user}/updateProfile`,
-  getProfile: `${user}/getProfile`,
+  updateProfile: `${user}/profile`,
+  getProfile: `${user}/profile`,
   buyToken: `${user}/buyToken`,
   buyTokenList: `${user}/buyTokenList`,
   graph: `${user}/graph`,
