@@ -260,10 +260,10 @@ function Transaction(props) {
   const user = useContext(UserContext);
   const [selectRankingDays, setSelectRankingDays] = useState();
   const [transactions, setTransactions] = useState([]);
-const [pagination, setPagination] = useState({ page: 1, limit: 10, total: 0, totalPages: 1 });
-const [txHash, setTxHash] = useState("");
-const [status, setStatus] = useState("");
-const [strategy, setStrategy] = useState("");
+  const [pagination, setPagination] = useState({ page: 1, limit: 10, total: 0, totalPages: 1 });
+  const [txHash, setTxHash] = useState("");
+  const [status, setStatus] = useState("");
+  const [strategy, setStrategy] = useState("");
 
   useEffect(() => {
     let searchParams = new URLSearchParams(window.location.search);
@@ -282,41 +282,41 @@ const [strategy, setStrategy] = useState("");
   }, [location.pathname]);
 
   const getTransactionsHandler = async () => {
-  try {
-    const res = await axios({
-      method: "GET",
-      url: ApiConfig.getTransactions,
-      headers: {
-        "x-auth-token":
-          sessionStorage.getItem("token") ||
-          localStorage.getItem("creatturAccessToken"),
-      },
-      params: {
-        page,
-        limit: 10,
-        txHash: txHash || undefined,
-        status: status || undefined,
-        strategy: strategy || undefined,
-        dateFrom: timeFilter ? new Date(timeFilter).toISOString() : undefined,
-        dateTo: toTimeFilter ? new Date(toTimeFilter).toISOString() : undefined,
-      },
-    })
+    try {
+      const res = await axios({
+        method: "GET",
+        url: ApiConfig.getTransactions,
+        headers: {
+          "x-auth-token":
+            sessionStorage.getItem("token") ||
+            localStorage.getItem("creatturAccessToken"),
+        },
+        params: {
+          page,
+          limit: 10,
+          txHash: txHash || undefined,
+          status: status || undefined,
+          strategy: strategy || undefined,
+          dateFrom: timeFilter ? new Date(timeFilter).toISOString() : undefined,
+          dateTo: toTimeFilter ? new Date(toTimeFilter).toISOString() : undefined,
+        },
+      })
 
-    if (res.data && res.data.transactions) {
-      setTransactions(res.data.transactions);
-      setPagination(res.data.pagination);
+      if (res.data && res.data.transactions) {
+        setTransactions(res.data.transactions);
+        setPagination(res.data.pagination);
+      }
+    } catch (error) {
+      console.error("Fetching transactions failed", error);
+      setTransactions([]);
     }
-  } catch (error) {
-    console.error("Fetching transactions failed", error);
-    setTransactions([]);
-  }
-};
+  };
 
-useEffect(() => {
-  
+  useEffect(() => {
+
     getTransactionsHandler();
-  
-}, []);
+
+  }, []);
 
 
   const buyTokenHandler = async () => {
@@ -583,25 +583,25 @@ useEffect(() => {
               </TableHead>
               <TableBody>
                 {transactions.map((data, index) => (
-  <TableRow className={classes.root} key={index}>
-    <TableCell>{data.transactionHash}</TableCell>
-    <TableCell>
-      <Box className="displayStart">
-        <Avatar src="/images/bnb_icon.svg" width="30px" height="30px" />
-        &nbsp;
-        <Typography variant="h6" style={{ color: "rgba(61, 61, 61, 1)" }}>
-          BTC
-        </Typography>
-        &nbsp; Bitcoin
-      </Box>
-    </TableCell>
-    <TableCell>{data?.fromSwap}</TableCell>
-    <TableCell>{data?.exchangeSwap}</TableCell>
-    <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>{data?.price}</TableCell>
-    <TableCell>{moment(data?.createdAt).format("DD-MMM-YYYY, hh:mm A")}</TableCell>
-    <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>{data?.profit}</TableCell>
-  </TableRow>
-))}
+                  <TableRow className={classes.root} key={index}>
+                    <TableCell>{data.transactionHash}</TableCell>
+                    <TableCell>
+                      <Box className="displayStart">
+                        <Avatar src="/images/bnb_icon.svg" width="30px" height="30px" />
+                        &nbsp;
+                        <Typography variant="h6" style={{ color: "rgba(61, 61, 61, 1)" }}>
+                          BTC
+                        </Typography>
+                        &nbsp; Bitcoin
+                      </Box>
+                    </TableCell>
+                    <TableCell>{data?.fromSwap}</TableCell>
+                    <TableCell>{data?.exchangeSwap}</TableCell>
+                    <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>{data?.price}</TableCell>
+                    <TableCell>{moment(data?.createdAt).format("DD-MMM-YYYY, hh:mm A")}</TableCell>
+                    <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>{data?.profit}</TableCell>
+                  </TableRow>
+                ))}
 
               </TableBody>
             </Table>

@@ -60,28 +60,27 @@ export default function DashboardnewCard() {
   });
   const [loading, setLoading] = useState(true);
 
-
   const fetchBotStats = async () => {
     try {
       setLoading(true);
       const token =
-    sessionStorage.getItem("token") || localStorage.getItem("creatturAccessToken");
+        sessionStorage.getItem("token") || localStorage.getItem("creatturAccessToken");
 
-  const res = await axios({
-    method: "GET",
-    url: ApiConfig.getBotStats,
-    headers: {
-      "x-auth-token": `${token}`,
-    },
-  });
-      
+      const res = await axios({
+        method: "GET",
+        url: ApiConfig.getBotStats,
+        headers: {
+          "x-auth-token": `${token}`,
+        },
+      });
+
       if (res.data.responseCode === 200) {
         // Adjust this based on your actual API response structure
-        const data = res.data.result;
+        const data = res.data;
         setBotStats({
-          walletBalance: data.walletBalance || "0.00",
-          transactionAmount: data.transactionAmount || "0.00",
-          highestProfile: data.highestProfile || "0",
+          walletBalance: data.walletBalance,
+          transactionAmount: data.totalTrades,
+          highestProfile: data.totalProfit,
         });
       }
       setLoading(false);
@@ -107,7 +106,7 @@ export default function DashboardnewCard() {
             <Box className="displaySpaceBetween">
               <Box ml={2} align="left">
                 <Typography variant="h6">Wallet Balance</Typography>
-                <Typography variant="h2">$67.67</Typography>
+                <Typography variant="h2">${botStats.walletBalance}</Typography>
               </Box>
               <Avatar
                 src="/images/Dashboard/wallet_icon.svg"
@@ -135,7 +134,7 @@ export default function DashboardnewCard() {
             <Box className="displaySpaceBetween">
               <Box ml={2} align="left">
                 <Typography variant="h6">Transactions</Typography>
-                <Typography variant="h2">$67.67</Typography>
+                <Typography variant="h2">${botStats.transactionAmount}</Typography>
               </Box>
               <Avatar
                 src="/images/Dashboard/transaction.svg"
@@ -148,15 +147,15 @@ export default function DashboardnewCard() {
           <Paper elevation={2} className="dashboardinner">
             <Box className="displaySpaceBetween exchangeBox">
               <Box ml={2} align="left">
-                <Typography variant="h6">Highest Profile</Typography>
-                <Typography variant="h2">4677</Typography>
+                <Typography variant="h6">Highest Profit</Typography>
+                <Typography variant="h2">{botStats.highestProfile}</Typography>
               </Box>
               <Avatar src="/images/highest.svg" className="iconbox" />
             </Box>
           </Paper>
         </Grid>
       </Grid>
-      <Profile />
+      {/* <Profile /> */}
     </Box>
   );
 }

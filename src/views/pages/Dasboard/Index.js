@@ -301,6 +301,11 @@ function Features() {
   const [wethUsdc, setwethUsdc] = useState([]);
   const [uniWeth, setuniWeth] = useState([]);
   const [age, setAge] = React.useState(10);
+  const [transactions, setTransactions] = useState([]);
+  const [pagination, setPagination] = useState({ page: 1, limit: 10, total: 0, totalPages: 1 });
+  const [txHash, setTxHash] = useState("");
+  const [status, setStatus] = useState("");
+  const [page, setPage] = useState(1);
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -470,6 +475,41 @@ function Features() {
       },
     },
   };
+
+  const getTransactionsHandler = async () => {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: ApiConfig.getTransactions,
+        headers: {
+          "x-auth-token":
+            sessionStorage.getItem("token") ||
+            localStorage.getItem("creatturAccessToken"),
+        },
+        params: {
+          page,
+          limit: 10,
+          txHash: txHash || undefined,
+          status: status || undefined,
+        },
+      })
+
+      if (res.data && res.data.transactions) {
+        setTransactions(res.data.transactions);
+        setPagination(res.data.pagination);
+      }
+    } catch (error) {
+      console.error("Fetching transactions failed", error);
+      setTransactions([]);
+    }
+  };
+
+  useEffect(() => {
+
+    getTransactionsHandler();
+
+  }, []);
+
   return (
     <>
       {/* <Profile /> */}
@@ -536,71 +576,64 @@ function Features() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {tableData1 &&
-                    tableData1?.map((data, index) => {
-                      return (
-                        <TableRow className={classes.root}>
-                          <TableCell component="th" scope="row">
-                            {data?.srNon}
-                          </TableCell>
-                          <TableCell component="th" scope="row">
-                            {/* {sortAddress(data?.transactionHash)} */}
-                            {data?.TxHash}
-                          </TableCell>
-                          <TableCell style={{ textTransform: "capitalize" }}>
-                            {" "}
-                            120
-                          </TableCell>
-                          <TableCell style={{ textTransform: "capitalize" }}>
-                            {" "}
-                            USDC.e-LINK
-                          </TableCell>
-                          <TableCell>
-                            <Box className="displayStart">
-                              <Avatar
-                                src="/images/bnb_icon.svg"
-                                width="30px"
-                                height="30px"
-                              />
-                              &nbsp;
-                              <Typography
-                                variant="body2"
-                                style={{ color: "rgba(61, 61, 61, 1)" }}
-                              >
-                                1.275
-                              </Typography>
-                            </Box>
-                          </TableCell>
-
-                          <TableCell
-                            style={{
-                              color: "#309A47",
-                              textAlign: "center",
-                            }}
-                          >
-                            {" "}
-                            1,409%
-                          </TableCell>
-                          <TableCell
-                            style={{ textAlign: "center", color: "#309A47" }}
-                          >
-                            Profitable Trade
-                          </TableCell>
-
-                          <TableCell style={{ color: "#309A47" }}>
-                            Successful
-                          </TableCell>
-                        </TableRow>
-                      );
-                    })}
-                  {/* {executionsList1.length == 0 && (
-                      <Box align="center" className="moreBox1">
-                        <Typography variant="body2">
-                          No Execution Founds
-                        </Typography>
-                      </Box>
-                    )} */}
+                  {transactions && transactions.length > 0 ? (
+                    transactions.map((data, index) => (
+                      <TableRow key={index} className={classes.root}>
+                        <TableCell component="th" scope="row">
+                          {data?.srNon}
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {data?.TxHash}
+                        </TableCell>
+                        <TableCell style={{ textTransform: "capitalize" }}>
+                          120
+                        </TableCell>
+                        <TableCell style={{ textTransform: "capitalize" }}>
+                          USDC.e-LINK
+                        </TableCell>
+                        <TableCell>
+                          <Box className="displayStart">
+                            <Avatar
+                              src="/images/bnb_icon.svg"
+                              width="30px"
+                              height="30px"
+                            />
+                            &nbsp;
+                            <Typography
+                              variant="body2"
+                              style={{ color: "rgba(61, 61, 61, 1)" }}
+                            >
+                              1.275
+                            </Typography>
+                          </Box>
+                        </TableCell>
+                        <TableCell
+                          style={{
+                            color: "#309A47",
+                            textAlign: "center",
+                          }}
+                        >
+                          1,409%
+                        </TableCell>
+                        <TableCell
+                          style={{ textAlign: "center", color: "#309A47" }}
+                        >
+                          Profitable Trade
+                        </TableCell>
+                        <TableCell style={{ color: "#309A47" }}>
+                          Successful
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={8} align="center">
+                        <Typography variant="body2">No Transactions Found</Typography>
+                      </TableCell>
+                    </TableRow>
+                  )}
                 </TableBody>
+
               </Table>
             </TableContainer>
 
