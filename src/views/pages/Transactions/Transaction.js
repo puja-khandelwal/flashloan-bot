@@ -259,6 +259,12 @@ function Transaction(props) {
   const { activate, account, chainId, library, deactivate } = useWeb3React();
   const user = useContext(UserContext);
   const [selectRankingDays, setSelectRankingDays] = useState();
+  const [transactions, setTransactions] = useState([]);
+const [pagination, setPagination] = useState({ page: 1, limit: 10, total: 0, totalPages: 1 });
+const [txHash, setTxHash] = useState("");
+const [status, setStatus] = useState("");
+const [strategy, setStrategy] = useState("");
+
   useEffect(() => {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("id")) {
@@ -274,6 +280,44 @@ function Transaction(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const getTransactionsHandler = async () => {
+  try {
+    const res = await axios({
+      method: "GET",
+      url: ApiConfig.getTransactions,
+      headers: {
+        "x-auth-token":
+          sessionStorage.getItem("token") ||
+          localStorage.getItem("creatturAccessToken"),
+      },
+      params: {
+        page,
+        limit: 10,
+        txHash: txHash || undefined,
+        status: status || undefined,
+        strategy: strategy || undefined,
+        dateFrom: timeFilter ? new Date(timeFilter).toISOString() : undefined,
+        dateTo: toTimeFilter ? new Date(toTimeFilter).toISOString() : undefined,
+      },
+    })
+
+    if (res.data && res.data.transactions) {
+      setTransactions(res.data.transactions);
+      setPagination(res.data.pagination);
+    }
+  } catch (error) {
+    console.error("Fetching transactions failed", error);
+    setTransactions([]);
+  }
+};
+
+useEffect(() => {
+  
+    getTransactionsHandler();
+  
+}, []);
+
 
   const buyTokenHandler = async () => {
     console.log("<<<<<<<<<<<<<-------------->>>>>>>>>>>>>>>>>>");
@@ -375,6 +419,7 @@ function Transaction(props) {
                   placeholder="Search by Transaction Hash..."
                   variant="outlined"
                   type="search"
+                  onChange={(e) => setTxHash(e.target.value)}
                 />
               </FormControl>
             </Box>
@@ -466,7 +511,7 @@ function Transaction(props) {
                 variant="contained"
                 // color="primary"
                 style={{ minWidth: "115px", backgroundColor: "#01CB54" }}
-                onClick={buyTokenHandler}
+                onClick={getTransactionsHandler}
               >
                 Apply
               </Button>{" "}
@@ -482,68 +527,7 @@ function Transaction(props) {
               </Button>{" "}
             </Box>
           </Grid>
-          {/* <Grid item xs={12} md={4} lg={4} sm={6} align="left">
-              <Typography variant="boay2" style={{ color: "#fff" }}>
-                {" "}
-                Select Coin
-              </Typography>
-              <Box mt={1}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  onClick={buyTokenHandler}
-                >
-                  Search
-                </Button>{" "}
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="small"
-                  // onClick={downloadExcel}
-                  style={{
-                    background: "#179366",
-                    color: "#fff",
-                    border: "none",
-                  }}
-                >
-                  Reset
-                </Button>{" "}
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="small"
-                  onClick={downloadExcel}
-                  style={{
-                    background: "#FD985F",
-                    color: "#fff",
-                    border: "none",
-                  }}
-                >
-                  Export
-                </Button>
-              </Box>
-            </Grid> */}
         </Grid>
-
-        {/* <Grid container spacing={1}>
-              <Grid item xs={6} align="left">
-                <Box className={classes.textBox}>
-                  <Typography variant="h2">Transactions History</Typography>{" "}
-                </Box>
-              </Grid>
-              <Grid item xs={6} align="right">
-              <Box>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={downloadExcel}
-                  >
-                    Export
-                  </Button>
-                </Box> 
-              </Grid>
-            </Grid> */}
       </Paper>
 
       <Box mt={3}>
@@ -598,50 +582,27 @@ function Transaction(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {tabledata &&
-                  tabledata?.map((data, index) => {
-                    return (
-                      <TableRow className={classes.root}>
-                        <TableCell component="th" scope="row">
-                          {data.transactionHash}
-                        </TableCell>
-                        <TableCell>
-                          <Box className="displayStart">
-                            <Avatar
-                              src="/images/bnb_icon.svg"
-                              width="30px"
-                              height="30px"
-                            />
-                            &nbsp;
-                            <Typography
-                              variant="h6"
-                              style={{ color: "rgba(61, 61, 61, 1)" }}
-                            >
-                              BTC
-                            </Typography>
-                            &nbsp; Bitcoin
-                          </Box>
-                        </TableCell>
-                        <TableCell>{data?.fromSwap}</TableCell>
-                        <TableCell>{data?.exchangeSwap}</TableCell>
+                {transactions.map((data, index) => (
+  <TableRow className={classes.root} key={index}>
+    <TableCell>{data.transactionHash}</TableCell>
+    <TableCell>
+      <Box className="displayStart">
+        <Avatar src="/images/bnb_icon.svg" width="30px" height="30px" />
+        &nbsp;
+        <Typography variant="h6" style={{ color: "rgba(61, 61, 61, 1)" }}>
+          BTC
+        </Typography>
+        &nbsp; Bitcoin
+      </Box>
+    </TableCell>
+    <TableCell>{data?.fromSwap}</TableCell>
+    <TableCell>{data?.exchangeSwap}</TableCell>
+    <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>{data?.price}</TableCell>
+    <TableCell>{moment(data?.createdAt).format("DD-MMM-YYYY, hh:mm A")}</TableCell>
+    <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>{data?.profit}</TableCell>
+  </TableRow>
+))}
 
-                        <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>
-                          {data?.price}
-                        </TableCell>
-                        <TableCell>{data?.createdAt}</TableCell>
-                        <TableCell style={{ color: "rgba(243, 109, 54, 1)" }}>
-                          {" "}
-                          {data?.profit}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-
-                {/* {executionsList1.length == 0 && (
-                  <Box align="center" className="moreBox1">
-                    <Typography variant="body2">No Execution Founds</Typography>
-                  </Box>
-                )} */}
               </TableBody>
             </Table>
           </TableContainer>
@@ -655,16 +616,8 @@ function Transaction(props) {
                 page={page}
                 onChange={(e, v) => setPage(v)}
               />
-              {/* <Button
-              className={classes.filterBtn}
-              onClick={(event) => setRecentCol(event.currentTarget)}
-            >
-              {swapExchange ? swapExchange.name.toString() : "10"}
-              <ArrowDropDownIcon />
-            </Button> */}
             </Box>
           )}
-
           <Box align="right" mt={3} className={classes.page}>
             <Pagination count={5} size="small" />
           </Box>

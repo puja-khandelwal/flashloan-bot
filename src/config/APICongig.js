@@ -1,6 +1,9 @@
+import { update } from "lodash";
+
 export const socketURL = "wss://node-oscar.mobiloitte.com";
 // const url = "https://node-oscar.mobiloitte.com";
 // const url = "https://node-tusharbot.mobiloitte.io";
+// const url = "http://127.0.0.1:4000"; // local
 const url = "http://91.108.104.148:4000";
 
 // local
@@ -14,9 +17,22 @@ const admin = `${url}/api/v1/admin`;
 const stake = `${url}/api/v1/stake`;
 const nft = `${url}/api/v1/nft`;
 
+
+
 const updateSubscribe = `${url}/api/v1/updateSubscribe`;
 
 const ApiConfig = {
+  login: `${user}/auth/login`,
+  getProfile: `${user}/profile`,
+  editProfile: `${user}/profile`,
+  autoTradingStatus: `${user}/profile/auto-trading-status`,
+  startAutoTrading: `${user}/profile/start-auto-trading`,
+  stopAutoTrading: `${user}/profile/stop-auto-trading`,
+  getWallet: `${user}/wallet`,
+  updateWallet: `${user}/wallet`,
+  getTransactions: `${user}/transactions`,
+  getBotStats: `${user}/stats/bot-stats`,
+
   // Signup us
 
   // signUp: `${user}/signup`,
@@ -34,8 +50,8 @@ const ApiConfig = {
   addContactUs: `${user}/addContactUs`,
   connectWallet: `${user}/connectWallet`,
 
-  updateProfile: `${user}/profile`,
-  getProfile: `${user}/profile`,
+  // updateProfile: `${user}/profile`,
+  // getProfile: `${user}/profile`,
   buyToken: `${user}/buyToken`,
   buyTokenList: `${user}/buyTokenList`,
   graph: `${user}/graph`,
@@ -55,7 +71,7 @@ const ApiConfig = {
   //USER AUTH
   signup: `${user}/signup`,
   verifyOTP: `${user}/verifyOTP`,
-  login: `${user}/login`,
+  
   forgotPassword: `${user}/forgotPassword`,
   resetPassword: `${user}/resetPassword`,
   resendOtp: `${user}/resendOtp`,

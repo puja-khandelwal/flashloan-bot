@@ -64,15 +64,16 @@ export default function DashboardnewCard() {
   const fetchBotStats = async () => {
     try {
       setLoading(true);
-      const res = await axios({
-        method: "GET", // Adjust method if needed
-        url: ApiConfig.botStats, // Make sure to define this endpoint in your ApiConfig
-        headers: {
-          token:
-            sessionStorage.getItem("token") ||
-            localStorage.getItem("creatturAccessToken"),
-        },
-      });
+      const token =
+    sessionStorage.getItem("token") || localStorage.getItem("creatturAccessToken");
+
+  const res = await axios({
+    method: "GET",
+    url: ApiConfig.getBotStats,
+    headers: {
+      "x-auth-token": `${token}`,
+    },
+  });
       
       if (res.data.responseCode === 200) {
         // Adjust this based on your actual API response structure

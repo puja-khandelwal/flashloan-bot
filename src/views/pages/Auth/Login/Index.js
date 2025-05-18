@@ -129,10 +129,10 @@ export default function Login() {
           password: values.password,
         },
       });
-
-      if (response.data.responseCode === 200) {
-        toast.success(response.data.responseMessage);
-        window.sessionStorage.setItem("token", response?.data?.result?.token);
+console.log("response==>>>", response);
+      if (response.status === 200) {
+        toast.success("Login successfully");
+        window.sessionStorage.setItem("token", response?.data?.token);
         if (isRemember) {
           window.localStorage.setItem(
             "arbitage",
@@ -141,10 +141,10 @@ export default function Login() {
         } else {
           window.localStorage.removeItem("arbitage");
         }
-        user.userLogIn(true, response?.data?.result?.token);
+        user.userLogIn(true, response?.data?.token);
         history.push("/dashboard");
       } else {
-        toast.error(response.data.responseMessage);
+        toast.error(response?.message);
       }
       setIsUpdating(false);
     } catch (error) {

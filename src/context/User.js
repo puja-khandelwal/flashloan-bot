@@ -251,12 +251,13 @@ export default function AuthProvider(props) {
       setUserData({});
       setIsProfileUpdating(true);
       const response = await getAPIHandler({
-        endPoint: "getProfileUser",
+        endPoint: ApiConfig.getProfile,
+        method: "GET",
         source: source,
       });
       console.log("userData===>>>", response);
-      if (response.data.responseCode === 200) {
-        setUserData(response.data.result);
+      if (response.status === 200) {
+        setUserData(response.data);
         setIsProfileUpdating(false);
       }
       setIsProfileUpdating(false);
